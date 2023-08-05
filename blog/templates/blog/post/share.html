@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+<!-- prettier-ignore -->
+{% block title %}Share a post{% endblock title %}
+
+
+{% block content %}
+
+{% if sent %}
+<h1>Email Successfully sent</h1>
+
+<p>"{{ post.title }}" was successfully sent to {{ form.cleaned_data.to}}</p>
+{% else %}
+<h1>Share {{ post.title }} by e-mail</h1>
+<form action="" method="post">
+  <!-- prettier-ignore -->
+  {% csrf_token %}
+  {{ form.as_p}}
+  <input type="submit" value="Send e-mail" />
+</form>
+{% endif %}
+
+<!-- prettier-ignore -->
+{% endblock content %}
