@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+<!-- prettier-ignore -->
+{% block title %}Add a comment{% endblock title %}
+
+
+{% block content %}
+
+{% if comment %}
+<h2>Your comment has been added</h2>
+<p><a href="{{ post.get_absolute_url }}">Back to post</a></p>
+
+<!-- prettier-ignore -->
+{% else %}
+<!-- prettier-ignore -->
+{% include 'blog/post/includes/comment_form.html' %}
+<!-- prettier-ignore -->
+{% endif %}
+        
+{% endblock content %}
